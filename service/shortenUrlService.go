@@ -32,7 +32,7 @@ func (s *shortenUrlService) CreateShortenUrl(ctx *gin.Context) (model.Response, 
 	if errParseUri != nil {
 		return model.Response{}, model.Error{ErrorCode: 400, ErrorMssage: "Inappropriate_URL_Format"}
 	}
-	response, err := utility.GenerateHashAndInsert(requestParameter, 5)
+	response, err := utility.GenerateHashAndInsert(ctx, requestParameter, 5, utility.RegexExp)
 	if err != nil {
 		return model.Response{}, model.Error{ErrorCode: 500, ErrorMssage: "Internal_Server_Error"}
 	}
