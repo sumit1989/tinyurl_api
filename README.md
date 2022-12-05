@@ -8,9 +8,7 @@
 
 * You need docker installed
 * Docker setup
-* Docker-compose
 * Golang compiler version go1.12 with go mod enabled setup
-* Make sure you have proxy setup
 
 ## Run with `go run main.go`
 
