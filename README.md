@@ -2,7 +2,7 @@
 ## Download source
 
     cd $GOPATH/src
-    git clone --recursive git@git.idfcbank.com:optimus/risk-monitor-api.git
+    git clone --recursive git@github.com:sumit1989/tinyurl_api.git
 
 ## Prerequisites
 
