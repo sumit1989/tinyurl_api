@@ -16,7 +16,7 @@ func Setup(conf conf.Config) *gin.Engine {
 	service := service.NewShortenUrlService()
 	controller := controller.NewShortenUrlController(service)
 	internalAuthRoute := router.Group("/internal/test/v1/")
-	internalAuthRoute.GET("/url", controller.CreateShortenUrl)
+	internalAuthRoute.GET("url", controller.CreateShortenUrl)
 	return router
 
 }

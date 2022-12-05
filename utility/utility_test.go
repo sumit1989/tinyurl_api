@@ -1,7 +1,6 @@
 package utility
 
 import (
-	"fmt"
 	"net/http/httptest"
 	"reflect"
 	"testing"
@@ -30,15 +29,11 @@ func (suite utilTestSuite) TestLoadFileNotExist() {
 
 	expected := "open test: no such file or directory"
 	actual := LoadMap("test")
-	fmt.Println(actual)
 	suite.Equal(expected, actual.Error())
 }
 
 func (suite utilTestSuite) TestLoadFileExist() {
-
 	actual := LoadMap(testFilePath)
-	fmt.Println(actual)
-
 	suite.Equal(nil, actual)
 }
 
@@ -69,7 +64,6 @@ func (suite utilTestSuite) TestGenerateHashAndErrorCaseRegularExpression() {
 	suite.recorder = httptest.NewRecorder()
 	suite.ginContext, _ = gin.CreateTestContext(suite.recorder)
 	_, err := GenerateHashAndInsert(suite.ginContext, "http://yahoo.com/search/abc", 5, RegexExp)
-	fmt.Println(err)
 	Expect(err.Error()).To(Equal("Unable to generate regular expression"))
 
 }
@@ -81,7 +75,6 @@ func (suite utilTestSuite) TestGenerateHashAndSuccessCase() {
 	actual, err := GenerateHashAndInsert(suite.ginContext, "http://yahoo.com/search/abc", 5, RegexExp)
 	suite.Equal(nil, err)
 	suite.Equal("zM2NDE", actual)
-	fmt.Println(UrlMapping)
 	urlMapTest["http://yahoo.com/search/abc"] = "zM2NDE"
 	eq := reflect.DeepEqual(UrlMapping, urlMapTest)
 

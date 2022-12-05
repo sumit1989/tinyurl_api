@@ -70,15 +70,3 @@ func (suite shortenUrlServiceTestSuite) TestCreateShortenUrlErrorCaseRequiredWro
 	Expect(err.ErrorMssage).To(Equal("Inappropriate_URL_Format"))
 
 }
-
-// func (suite shortenUrlServiceTestSuite) TestCreateShortenUrlErrorCaseInternalServerError() {
-// 	apiUrl := "/internal/test/v1/url?longUrl=http://yahoo.com/search/abc"
-// 	suite.ginContext.Request, _ = http.NewRequest(http.MethodGet, apiUrl, nil)
-// 	utility.GenerateHashAndInsert(suite.testContext, "", 500)
-// 	response, err := suite.shortenUrlService.CreateShortenUrl(suite.ginContext)
-// 	fmt.Println("response is: ", response)
-// 	suite.Empty(response.ResponseMssage)
-// 	Expect(err.ErrorCode).To(Equal(400))
-// 	Expect(err.ErrorMssage).To(Equal("Inappropriate_URL_Format"))
-
-// }

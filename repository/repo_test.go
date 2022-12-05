@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"fmt"
 	"net/http/httptest"
 	"testing"
 
@@ -29,12 +28,10 @@ func (suite repositoryTestSuite) TestWriteFileNotExist() {
 
 	expected := "open test: no such file or directory"
 	err := WriteFile("test", "http://yahoo.com/search/abc", "zM2NDE")
-	fmt.Println(err)
 	suite.Equal(expected, err.Error())
 }
 
 func (suite repositoryTestSuite) TestWriteSuccess() {
 	err := WriteFile("repo.txt", "http://yahoo.com/search/abc", "zM2NDE")
-	fmt.Println(err)
 	suite.Equal(nil, err)
 }

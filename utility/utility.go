@@ -27,7 +27,6 @@ func GenerateHashAndInsert(ctxt context.Context, longURL string, startIndex int,
 		return " ", errors.New("Unable to generate regular expression")
 	}
 	tinyURLData := tinyURLRegex.ReplaceAllString(base64.URLEncoding.EncodeToString([]byte(hashedURLData)), "_")
-	logger.Info("aa", len(tinyURLData))
 	if len(tinyURLData) < (startIndex + 6) {
 		logger.Error("Failed in getting the tiny url ", tinyURLRegex)
 		return " ", errors.New("Unable to generate tiny URL")
